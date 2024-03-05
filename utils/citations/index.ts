@@ -1,7 +1,7 @@
 import * as dict from '@/utils/dict'
 import doiMappings from './citations'
 
-function convertDOI(text: string) {
+export function convertDOI(text: string) {
   const m = /^doi:(.+)$/.exec(text)
   if (m !== null && m[1] in doiMappings) {
     return `${doiMappings[m[1] as keyof typeof doiMappings]} ${text}`

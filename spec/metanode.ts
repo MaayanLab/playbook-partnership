@@ -52,6 +52,12 @@ export type InternalIdentifiableMetaNode = {
     version?: string,
     author?: string,
     license?: string,
+    // tex feature
+    tex?: {
+      introduction?: string,
+      methods?: string,
+      caption?: string,
+    },
   }
 }
 
