@@ -27,6 +27,9 @@ const Scored_T = (T: Primative) => MetaNode(`Scored[${T.name}]`)
         Scored: 1,
       },
     },
+    tex: {
+      caption: `A table of ${T.name.toLocaleLowerCase()} z-scores.`,
+    },
   })
   .codec(z.array(z.object({ term: z.string(), zscore: z.union([z.number(), z.literal('nan'), z.literal('inf'), z.literal('-inf')]) })))
   .view(scored => {

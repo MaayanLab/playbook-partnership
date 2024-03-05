@@ -11,6 +11,10 @@ export const GTExTissueExpression = MetaNode('GTExTissueExpression')
     description: 'Use GTEx API to obtain median tissue expression for the given gene',
     icon: [gtex_icon],
     pagerank: 1,
+    tex: {
+      introduction: 'The Genotype-Tissue Expression (GTEx) project is an ongoing effort to build a comprehensive public resource to study tissue-specific gene expression and regulation. Samples were collected from 54 non-diseased tissue sites across nearly 1000 individuals, primarily for molecular assays including WGS, WES, and RNA-Seq \\cite{doi:10.1038/ng.2653}. The GTEx Portal provides open access to data including gene expression, QTLs, and histology images.',
+      methods: 'The GTEx Portal API was first used to convert the gene term into a versioned ENSEMBL gene id. The ENSEMBL gene id was then used to query GTEx v8 for median gene expression across the GTEx cohort.',
+    },
   })
   .inputs({ gene_info: GeneInfo })
   .output(ScoredTissues)

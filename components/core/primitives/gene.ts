@@ -20,6 +20,10 @@ export const Gene = {
       meta: {
         example: 'ACE2',
         pagerank: 7,
+        tex: {
+          // introduction: `Gene information is available from a large number of resources.`,
+          // methods: `The genes are mapped to HUGO gene symbols.`,
+        },
       },
       autocomplete: useHarmonizomeGeneSuggestions,
     },

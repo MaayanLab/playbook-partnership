@@ -10,6 +10,9 @@ export const BarplotFromScoredT = [ScoredDiseases, ScoredDrugs, ScoredGenes, Sco
       label: `Barplot from ${ScoredT.meta.label}`,
       description: `Construct Barplot with ${ScoredT.meta.label}`,
       icon: [barchart_icon],
+      tex: {
+        methods: `Barplots of ${ScoredT.meta.label.toLocaleLowerCase()} were constructed in python using plotly.`,
+      },
     })
     .inputs({ terms: ScoredT })
     .output(PlotlyPlot)

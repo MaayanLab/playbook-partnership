@@ -17,6 +17,9 @@ export const PlotlyPlot = MetaNode('PlotlyPlot')
     label: 'Plotly Plot',
     description: 'A plot rendered using the [plotly.js library](https://plotly.com/javascript/)',
     icon: [plot_icon],
+    tex: {
+      caption: `A rendered plotly plot.`,
+    },
   })
   .codec<PlotlyJson>()
   .view(props => <Plot {...props} />)

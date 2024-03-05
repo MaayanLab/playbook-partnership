@@ -70,6 +70,10 @@ const Input_Term_T = (T: Primative, Term_T: DataMetaNode<InternalDataMetaNode & 
         Term: 1,
       },
     },
+    tex: {
+      ...(T.extra?.term?.meta?.tex || {}),
+      introduction: `${T.label} information is available from a large number of resources.`,
+    },
     ...(T.extra?.term?.meta || {}),
   })
   .inputs()

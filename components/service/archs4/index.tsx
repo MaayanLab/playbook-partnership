@@ -29,6 +29,10 @@ export const ARCHS4TissueExpression = MetaNode('ARCHS4TissueExpression')
     label: 'Query ARCHS4 Median Tissue Expression',
     description: 'Use ARCHS4 API to obtain median tissue expression for the given gene',
     icon: [archs4_icon],
+    tex: {
+      introduction: 'All RNA-seq and ChIP-seq sample and signature search (ARCHS4) is a resource that provides access to gene and transcript counts uniformly processed from all human and mouse RNA-seq experiments from the Gene Expression Omnibus (GEO) and the Sequence Read Archive (SRA). \\cite{doi:10.1038/s41467-018-03751-6}',
+      methods: 'The ARCHS4 API was queried with the gene term, returning statistics to construct a boxplot, namely min, q1, median, q3, and max. 1000 random genes were queried against the ARCHS4 to get a mean and standard deviation for the median value. The medians returned by the ARCHS4 for each tissue were then assigned a z-score based on the pre-computed mean and standard deviations.',
+    },
   })
   .inputs({ gene: GeneTerm })
   .output(ScoredTissues)
