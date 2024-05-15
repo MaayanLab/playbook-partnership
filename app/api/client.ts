@@ -10,6 +10,8 @@ import type { CWLForPlaybook as CWLForPlaybook_ } from './v1/cwl'
 export const CWLForPlaybook = APIInterface<typeof CWLForPlaybook_>("/api/v1/cwl/[fpl_id]", "GET")
 import type { CWLForPlaybookFile as CWLForPlaybookFile_ } from './v1/cwl'
 export const CWLForPlaybookFile = APIInterface<typeof CWLForPlaybookFile_>("/api/v1/cwl/[fpl_id]/[filename]", "GET")
+import type { ROCrateForPlaybook as ROCrateForPlaybook_ } from './v1/ro-crate'
+export const ROCrateForPlaybook = APIInterface<typeof ROCrateForPlaybook_>("/api/v1/ro-crate/[fpl_id]", "GET")
 import type { UserIntegrationsBioComputeAuth as UserIntegrationsBioComputeAuth_ } from './v1/user/integrations/biocompute'
 export const UserIntegrationsBioComputeAuth = APIInterface<typeof UserIntegrationsBioComputeAuth_>("/api/v1/user/integrations/biocompute/auth", "GET")
 import type { UserIntegrationsBioComputePublishedBCO as UserIntegrationsBioComputePublishedBCO_ } from './v1/user/integrations/biocompute'

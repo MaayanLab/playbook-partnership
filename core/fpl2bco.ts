@@ -6,15 +6,10 @@ import * as dict from '@/utils/dict'
 import * as array from '@/utils/array'
 import type { FPL } from "@/core/FPPRG"
 import packageJson from '@/package.json'
-import { Author, Metadata, fpl_expand } from "./common";
+import { Author, Metadata, fpl_expand, toISO8601TimeString } from "./common";
 
 type BCO = z.infer<typeof IEE2791schema>
 type BaseBCO = Omit<BCO, 'etag' | 'object_id' | 'spec_version'>
-
-function toBCOTimeString(date?: Date) {
-  if (date === undefined) date = new Date()
-  return date.toISOString().replace(/Z$/, '000')
-}
 
 function parseMetaNodeAuthor(author: string) {
   const m = /^(.+?)\s*(<(.+?)>)?$/.exec(author)
@@ -35,8 +30,8 @@ export default async function FPL2BCO(props: { krg: KRG, fpl: FPL, metadata?: Me
       derived_from: `${process.env.PUBLIC_URL}/report/${fullFPL[fullFPL.length - 1].id}`,
       contributors: [],
       review: [],
-      created: toBCOTimeString(), // TODO: datetime
-      modified: toBCOTimeString(), // TODO: datetime
+      created: toISO8601TimeString(), // TODO: datetime
+      modified: toISO8601TimeString(), // TODO: datetime
     },
     description_domain: {
       keywords: [
@@ -58,17 +53,17 @@ export default async function FPL2BCO(props: { krg: KRG, fpl: FPL, metadata?: Me
           name: `Output of step ${inputProcess.index+1}`,
           uri: {
             uri: `#/${inputProcess.index}/process/output`,
-            access_time: toBCOTimeString(),
+            access_time: toISO8601TimeString(),
           },
         })),
         input_list: dict.values(node.inputs).map(input => processLookup[input.id]).map(inputProcess => ({
           uri: `#/${inputProcess.index}/process/output`,
-          access_time: toBCOTimeString(),
+          access_time: toISO8601TimeString(),
         })),
         output_list: [
           {
             uri: `#/${index}/process/output`,
-            access_time: toBCOTimeString(),
+            access_time: toISO8601TimeString(),
           }
         ],
       })),
@@ -86,7 +81,7 @@ export default async function FPL2BCO(props: { krg: KRG, fpl: FPL, metadata?: Me
           name: 'Docker',
           version: '20.10.21',
           uri: {
-            access_time: toBCOTimeString(),
+            access_time: toISO8601TimeString(),
             uri: 'https://docs.docker.com/get-docker/',
           },
         },

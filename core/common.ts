@@ -16,6 +16,11 @@ export type Author = {
   orcid?: string,
 }
 
+export function toISO8601TimeString(date?: Date) {
+  if (date === undefined) date = new Date()
+  return date.toISOString().replace(/Z$/, '000')
+}
+
 export async function fpl_expand(props: { krg: KRG, fpl: FPL, metadata?: Metadata, author?: Author | null }) {
   const fullFPL = props.fpl.resolve()
   const processLookup = dict.init(
