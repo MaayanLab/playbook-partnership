@@ -215,6 +215,10 @@ import * as service_enrichr from "./service/enrichr"
 import service_enrichr_packageJson from "./service/enrichr/package.json"
 metanodes.push(...MetaNodesFromExports(service_enrichr, service_enrichr_packageJson))
 components.push("service/enrichr")
+import * as service_enrichr_kg from "./service/enrichr-kg"
+import service_enrichr_kg_packageJson from "./service/enrichr-kg/package.json"
+metanodes.push(...MetaNodesFromExports(service_enrichr_kg, service_enrichr_kg_packageJson))
+components.push("service/enrichr-kg")
 import * as service_geneshot from "./service/geneshot"
 import service_geneshot_packageJson from "./service/geneshot/package.json"
 metanodes.push(...MetaNodesFromExports(service_geneshot, service_geneshot_packageJson))
